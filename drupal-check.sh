@@ -11,14 +11,12 @@ div2="==="
 month=$(date | awk '{print$2}')
 pmonth=$(date '+%b' --date '1 month ago')
 
-ioccheck()
-{		if [[ -s $(grep 103.53.197.172 /tmp/drupalchk 2> /dev/null) ]]
-			echo -e "$gre $div2 positive IOC found $div2 $yell"
-			grep 103.53.197.172 /tmp/drupalchk
-		        echo -e "$gre crypo-jacking campaign "
-			echo -e "https://badpackets.net/large-cryptojacking-campaign-targeting-vulnerable-drupal-websites/
-}	
-
+#ioccheck () {
+#	if [[ -s $(grep 103.53.197.172 /tmp/drupalchk 2> /dev/null) ]]; then echo -e "$gre $div2 positive IOC found $div2 $yell"
+			#grep 103.53.197.172 /tmp/drupalchk
+		        #echo -e "$gre crypo-jacking campaign "
+			#echo -e "https://badpackets.net/large-cryptojacking-campaign-targeting-vulnerable-drupal-websites/"
+#		}
 
 #Check for Environment
 if [[ -x $(which whmapi1) ]]; then #Cpanel
