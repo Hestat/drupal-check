@@ -16,7 +16,7 @@ ioccheck(){		if [[ -s $(grep 103.53.197.172 /tmp/drupalchk 2> /dev/null) ]]
 			grep 103.53.197.172 /tmp/drupalchk
 		        echo -e "$gre crypo-jacking campaign "
 			echo -e "https://badpackets.net/large-cryptojacking-campaign-targeting-vulnerable-drupal-websites/
-		}	
+}	
 
 
 #Check for Environment
