@@ -59,7 +59,7 @@ case "$answer" in
 		#Testing Purposes#cat /tmp/drupalchk | cut -d : -f 3 | sort | uniq -c | sort
 		echo -e "$gre $div2 Sites thst may have been compromised $div2 $yell"
 		cat /tmp/drupalchk | cut -d '/' -f 6 | sort | uniq | cut -d : -f1 | uniq
-#		ioccheck
+		ioccheck
                 #Testing Purpsoes#cat /tmp/drupalchk | cut -d '/' -f 11 | sort | uniq | cut -d : -f1 | uniq
 
 	;;
@@ -73,7 +73,7 @@ case "$answer" in
                 #Testing pursposes#cat /tmp/drupalchk2 | cut -d : -f 3 | sort | uniq -c | sort
                 echo -e "$gre $div2 Sites thst may have been compromised $div2 $yell"
                 cat /tmp/drupalchk2 | cut -d '/' -f 5 | sort | uniq | cut -d : -f1 | uniq
-#                ioccheck
+                ioccheck
 		#Testing purposes#cat /tmp/drupalchk2 | cut -d '/' -f 11 | sort | uniq | cut -d : -f1 | uniq
 	;;
 	
@@ -86,7 +86,7 @@ case "$answer" in
                 #Testing Purposes#cat /tmp/drupalchk2 | cut -d : -f 3 | sort | uniq -c | sort
                 echo -e "$gre $div2 Sites thst may have been compromised $div2 $yell"
                 cat /tmp/drupalchk2 | cut -d '/' -f 5 | sort | uniq | cut -d : -f1 | uniq
-#		ioccheck
+		ioccheck
                 #Testing purposes#cat /tmp/drupalchk2 | cut -d '/' -f 11 | sort | uniq | cut -d : -f1 | uniq
  
 	;;
@@ -129,7 +129,7 @@ case "$answer2" in
                 cat /tmp/drupalchk | awk '$9 ~ 200 && $6 ~ /POST/ { print }' 
                 echo -e "$gre $div2 IP's possibly involved in exploting Drupal sites $div2 $yell"
                 cat /tmp/drupalchk | cut -d : -f 2 | sort | uniq -c | sort
-#	        ioccheck	
+	        ioccheck	
 	;;
 	
 		2) rm /tmp/drupalchk 2> /dev/null
