@@ -6,16 +6,17 @@
 yell='\e[33m'
 gre='\e[32m'
 whi='\e[0m'
+red='\e[1;31m'
 div1="==========="
 div2="==="
 month=$(date | awk '{print$2}')
 pmonth=$(date '+%b' --date '1 month ago')
 
 ioccheck () {
-	if [[ $(grep 103.53.197.172 /tmp/drupalchk 2> /dev/null) ]]; then echo -e "$gre $div2 positive IOC found $div2 $yell"
+	if [[ $(grep 103.53.197.172 /tmp/drupalchk 2> /dev/null) ]]; then echo -e "$red $div2 positive IOC found $div2 $yell"
 			grep 103.53.197.172 /tmp/drupalchk
-		        echo -e "$gre crypo-jacking campaign "
-			echo -e "https://badpackets.net/large-cryptojacking-campaign-targeting-vulnerable-drupal-websites/"
+		        echo -e "$gre $div2 crypo-jacking campaign $div2"
+			echo -e "$red $div2 https://badpackets.net/large-cryptojacking-campaign-targeting-vulnerable-drupal-websites/ $div2 $whi"
 		fi
 		}
 
