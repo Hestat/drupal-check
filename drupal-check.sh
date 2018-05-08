@@ -28,7 +28,7 @@ ioccheck2 () {
 			grep 103.53.197.172 /tmp/drupalchk2
 		        echo -e "$gre $div2 crypo-jacking campaign $div2"
 			echo -e "$red $div2 https://badpackets.net/large-cryptojacking-campaign-targeting-vulnerable-drupal-websites/ $div2 $whi"
-			egrep 'normandysights.com' /tmp/drupalchk
+			egrep 'normandysights.com' /tmp/drupalchk2
 			echo -e "$gre $div2 Tech support scam $div2"
 			echo -e "$red $div2 https://laskowski-tech.com/2018/05/04/pwned-drupal-site-recruited-for-tech-support-scams/ $div2"
 		fi
