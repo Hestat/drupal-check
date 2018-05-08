@@ -20,6 +20,14 @@ ioccheck () {
 		fi
 		}
 
+ioccheck2 () {
+	if [[ $(egrep 103.53.197.172 /tmp/drupalchk2 2> /dev/null) ]]; then echo -e "$red $div2 positive IOC found $div2 $yell"
+			grep 103.53.197.172 /tmp/drupalchk2
+		        echo -e "$gre $div2 crypo-jacking campaign $div2"
+			echo -e "$red $div2 https://badpackets.net/large-cryptojacking-campaign-targeting-vulnerable-drupal-websites/ $div2 $whi"
+		fi
+		}
+
 #Check for Environment
 if [[ -x $(which whmapi1) ]]; then #Cpanel
 
@@ -74,7 +82,7 @@ case "$answer" in
                 #Testing pursposes#cat /tmp/drupalchk2 | cut -d : -f 3 | sort | uniq -c | sort
                 echo -e "$gre $div2 Sites thst may have been compromised $div2 $yell"
                 cat /tmp/drupalchk2 | cut -d '/' -f 5 | sort | uniq | cut -d : -f1 | uniq
-                ioccheck
+                ioccheck2
 		#Testing purposes#cat /tmp/drupalchk2 | cut -d '/' -f 11 | sort | uniq | cut -d : -f1 | uniq
 	;;
 	
@@ -87,7 +95,7 @@ case "$answer" in
                 #Testing Purposes#cat /tmp/drupalchk2 | cut -d : -f 3 | sort | uniq -c | sort
                 echo -e "$gre $div2 Sites thst may have been compromised $div2 $yell"
                 cat /tmp/drupalchk2 | cut -d '/' -f 5 | sort | uniq | cut -d : -f1 | uniq
-		ioccheck
+		ioccheck2
                 #Testing purposes#cat /tmp/drupalchk2 | cut -d '/' -f 11 | sort | uniq | cut -d : -f1 | uniq
  
 	;;
