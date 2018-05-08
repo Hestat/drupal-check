@@ -62,6 +62,7 @@ case "$answer" in
 		echo
 		grep -R 'system&name' /usr/local/apache/domlogs/ 1> /tmp/drupalchk 2> /dev/null
 		grep -R 'q=user%2Fpassword&name%5B%23post_render%5D%5B%5D=passthru&name' /usr/local/apache/domlogs/ 1>> /tmp/drupalchk 2> /dev/null
+		grep -R '?q=file%2Fajax%2Fname%2F%23value%2Fform-' /usr/local/apache/domlogs/ 1>> /tmp/drupalchk 2> /dev/null 
 		cat /tmp/drupalchk | awk '$9 ~ 200 && $6 ~ /POST/ { print }' 
 		echo -e "$gre $div2 IP's possibly involved in exploting Drupal sites $div2 $yell"
 		cat /tmp/drupalchk | cut -d : -f 2 | sort | uniq -c | sort 
@@ -76,6 +77,7 @@ case "$answer" in
 	2) echo -e "$yell $div2 Scanning Current Month logs $div2"
 		zgrep 'system&name' /home/*/logs/*-$month-2018.gz 1> /tmp/drupalchk2 2> /dev/null
 		zgrep 'q=user%2Fpassword&name%5B%23post_render%5D%5B%5D=passthru&name' /home/*/logs/*-$month-2018.gz 1>> /tmp/drupalchk2 2> /dev/null
+		zgrep '?q=file%2Fajax%2Fname%2F%23value%2Fform-' /home/*/logs/*-$month-2018.gz 1>> /tmp/drupalchk2 2> /dev/null 
                 cat /tmp/drupalchk2 | awk '$9 ~ 200 && $6 ~ /POST/ { print }' 
                 echo -e "$gre $div2 IP's possibly involved in exploting Drupal sites $div2 $yell"
                 cat /tmp/drupalchk2 | cut -d : -f 2 | sort | uniq -c | sort 
@@ -89,6 +91,7 @@ case "$answer" in
 	3) echo -e "$yell $div2 Scanning Current Month logs $div2"
                 zgrep 'system&name' /home/*/logs/*-$pmonth-2018.gz 1> /tmp/drupalchk2 2> /dev/null
 		zgrep 'q=user%2Fpassword&name%5B%23post_render%5D%5B%5D=passthru&name' /home/*/logs/*-$pmonth-2018.gz 1>> /tmp/drupalchk2 2> /dev/null
+		zgrep '?q=file%2Fajax%2Fname%2F%23value%2Fform-' /home/*/logs/*-$pmonth-2018.gz 1>> /tmp/drupalchk2 2> /dev/null 
                 cat /tmp/drupalchk2 | awk '$9 ~ 200 && $6 ~ /POST/ { print }' 
                 echo -e "$gre $div2 IP's possibly involved in exploting Drupal sites $div2 $yell"
                 cat /tmp/drupalchk2 | cut -d : -f 2 | sort | uniq -c | sort 
@@ -135,6 +138,8 @@ case "$answer2" in
 	       1) echo -e "$gre $div2 Scanning Current Apache logs $div2 $yell"
                 echo
                 grep -R 'system&name' /var/log/apache2/access.log* 1> /tmp/drupalchk 2> /dev/null
+		grep -R 'q=user%2Fpassword&name%5B%23post_render%5D%5B%5D=passthru&name' /var/log/apache2/access.log* 1>> /tmp/drupalchk 2> /dev/null
+		grep -R '?q=file%2Fajax%2Fname%2F%23value%2Fform-' /var/log/apache2/access.log* 1>> /tmp/drupalchk 2> /dev/null
                 cat /tmp/drupalchk | awk '$9 ~ 200 && $6 ~ /POST/ { print }' 
                 echo -e "$gre $div2 IP's possibly involved in exploting Drupal sites $div2 $yell"
                 cat /tmp/drupalchk | cut -d : -f 2 | sort | uniq -c | sort
