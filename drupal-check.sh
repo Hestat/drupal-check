@@ -13,18 +13,24 @@ month=$(date | awk '{print$2}')
 pmonth=$(date '+%b' --date '1 month ago')
 
 ioccheck () {
-	if [[ $(egrep 103.53.197.172 /tmp/drupalchk 2> /dev/null) ]]; then echo -e "$red $div2 positive IOC found $div2 $yell"
-			grep 103.53.197.172 /tmp/drupalchk
+	if [[ $(egrep '103.53.197.172|normandysights.com' /tmp/drupalchk 2> /dev/null) ]]; then echo -e "$red $div2 positive IOC found $div2 $yell"
+			egrep '103.53.197.172' /tmp/drupalchk
 		        echo -e "$gre $div2 crypo-jacking campaign $div2"
 			echo -e "$red $div2 https://badpackets.net/large-cryptojacking-campaign-targeting-vulnerable-drupal-websites/ $div2 $whi"
+			egrep 'normandysights.com' /tmp/drupalchk
+			echo -e "$gre $div2 Tech support scam $div2"
+			echo -e "$red $div2 https://laskowski-tech.com/2018/05/04/pwned-drupal-site-recruited-for-tech-support-scams/ $div2"
 		fi
 		}
 
 ioccheck2 () {
-	if [[ $(egrep 103.53.197.172 /tmp/drupalchk2 2> /dev/null) ]]; then echo -e "$red $div2 positive IOC found $div2 $yell"
+	if [[ $(egrep '103.53.197.172|normandysights.com' /tmp/drupalchk2 2> /dev/null) ]]; then echo -e "$red $div2 positive IOC found $div2 $yell"
 			grep 103.53.197.172 /tmp/drupalchk2
 		        echo -e "$gre $div2 crypo-jacking campaign $div2"
 			echo -e "$red $div2 https://badpackets.net/large-cryptojacking-campaign-targeting-vulnerable-drupal-websites/ $div2 $whi"
+			egrep 'normandysights.com' /tmp/drupalchk
+			echo -e "$gre $div2 Tech support scam $div2"
+			echo -e "$red $div2 https://laskowski-tech.com/2018/05/04/pwned-drupal-site-recruited-for-tech-support-scams/ $div2"
 		fi
 		}
 
