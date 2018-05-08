@@ -14,7 +14,7 @@ pmonth=$(date '+%b' --date '1 month ago')
 
 ioccheck () {
 	if [[ $(grep 103.53.197.172 /tmp/drupalchk 2> /dev/null) ]]; then echo -e "$red $div2 positive IOC found $div2 $yell"
-			grep 103.53.197.172 /tmp/drupalchk
+			egrep '103.53.197.172|162.222.213.236' /tmp/drupalchk
 		        echo -e "$gre $div2 crypo-jacking campaign $div2"
 			echo -e "$red $div2 https://badpackets.net/large-cryptojacking-campaign-targeting-vulnerable-drupal-websites/ $div2 $whi"
 		fi
